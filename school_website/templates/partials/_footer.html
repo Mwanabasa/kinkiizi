@@ -1,0 +1,57 @@
+<!-- templates/partials/_footer.html -->
+<footer class="bg-dark text-white py-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <h5>Our School</h5>
+                <p>Providing quality education and nurturing future leaders since 1990. Committed to academic excellence and character development.</p>
+                <div class="social-links">
+                    <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-linkedin fa-lg"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-lg-2 mb-4">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{% url 'home' %}" class="text-white text-decoration-none">Home</a></li>
+                    <li><a href="{% url 'about' %}" class="text-white text-decoration-none">About</a></li>
+                    <li><a href="{% url 'academics' %}" class="text-white text-decoration-none">Academics</a></li>
+                    <li><a href="{% url 'news_list' %}" class="text-white text-decoration-none">News</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-lg-3 mb-4">
+                <h5>Contact Info</h5>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-map-marker-alt me-2"></i> 123 School Street, City</li>
+                    <li><i class="fas fa-phone me-2"></i> (123) 456-7890</li>
+                    <li><i class="fas fa-envelope me-2"></i> info@ourschool.edu</li>
+                </ul>
+            </div>
+            
+            <div class="col-lg-3 mb-4">
+                <h5>School Hours</h5>
+                <ul class="list-unstyled">
+                    <li>Monday - Friday: 8:00 AM - 3:00 PM</li>
+                    <li>Saturday: 9:00 AM - 12:00 PM</li>
+                    <li>Sunday: Closed</li>
+                </ul>
+            </div>
+        </div>
+        
+        <hr class="my-4">
+        
+        <div class="row">
+            <div class="col-md-6">
+                <p>&copy; 2024 Our School. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <a href="#" class="text-white text-decoration-none me-3">Privacy Policy</a>
+                <a href="#" class="text-white text-decoration-none">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>

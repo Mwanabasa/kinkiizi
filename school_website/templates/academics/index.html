@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %}Academics - {{ block.super }}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="text-center mb-5">Academic Programs</h1>
+    
+    <!-- Introduction -->
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+            <p class="lead">We offer comprehensive educational programs designed to nurture intellectual growth, creativity, and character development in a supportive learning environment.</p>
+        </div>
+    </div>
+
+    <!-- Programs by Level -->
+    <div class="row">
+        <!-- Primary School -->
+        <div class="col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-pencil-alt fa-3x text-primary mb-3"></i>
+                    <h3>Primary School</h3>
+                    <p>Foundational education for young learners focusing on basic literacy, numeracy, and social skills.</p>
+                    <ul class="list-unstyled">
+                        <li>Grades 1-5</li>
+                        <li>Age 6-10 years</li>
+                        <li>Comprehensive curriculum</li>
+                    </ul>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'programs' %}" class="btn btn-outline-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Secondary School -->
+        <div class="col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-book fa-3x text-primary mb-3"></i>
+                    <h3>Secondary School</h3>
+                    <p>Intermediate education building on foundational knowledge with specialized subject introduction.</p>
+                    <ul class="list-unstyled">
+                        <li>Grades 6-8</li>
+                        <li>Age 11-13 years</li>
+                        <li>Subject specialization</li>
+                    </ul>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'programs' %}" class="btn btn-outline-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- High School -->
+        <div class="col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-graduation-cap fa-3x text-primary mb-3"></i>
+                    <h3>High School</h3>
+                    <p>Advanced education preparing students for higher education and career paths.</p>
+                    <ul class="list-unstyled">
+                        <li>Grades 9-12</li>
+                        <li>Age 14-18 years</li>
+                        <li>College preparation</li>
+                    </ul>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'programs' %}" class="btn btn-outline-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <h2 class="text-center mb-4">Why Choose Our Academic Programs?</h2>
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <i class="fas fa-user-graduate fa-2x text-primary mb-2"></i>
+                    <h5>Qualified Teachers</h5>
+                    <p>Certified and experienced educators</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="fas fa-laptop fa-2x text-primary mb-2"></i>
+                    <h5>Modern Facilities</h5>
+                    <p>State-of-the-art classrooms and labs</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="fas fa-chart-line fa-2x text-primary mb-2"></i>
+                    <h5>Proven Results</h5>
+                    <p>Consistent academic excellence</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="fas fa-heart fa-2x text-primary mb-2"></i>
+                    <h5>Holistic Development</h5>
+                    <p>Focus on overall student growth</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+            <div class="card bg-primary text-white">
+                <div class="card-body py-5">
+                    <h3>Ready to Learn More?</h3>
+                    <p class="mb-4">Explore our detailed programs and academic calendar</p>
+                    <a href="{% url 'programs' %}" class="btn btn-light me-3">View All Programs</a>
+                    <a href="{% url 'calendar' %}" class="btn btn-outline-light">Academic Calendar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

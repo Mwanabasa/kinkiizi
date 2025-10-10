@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}About Us - {{ block.super }}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- Page Header -->
+    <div class="row mb-5">
+        <div class="col-12 text-center">
+            <h1>About Our School</h1>
+            <p class="lead">Building futures through quality education</p>
+        </div>
+    </div>
+
+    <!-- History Section -->
+    <div class="row mb-5">
+        <div class="col-lg-6">
+            <h2>Our History</h2>
+            {% if about_content %}
+            <p>{{ about_content.history }}</p>
+            {% else %}
+            <p>Founded in 1990, our school has been at the forefront of providing quality education to generations of students. We have grown from a small community school to a leading educational institution known for academic excellence and character development.</p>
+            {% endif %}
+        </div>
+        <div class="col-lg-6">
+            <img src="https://via.placeholder.com/500x300" alt="School History" class="img-fluid rounded">
+        </div>
+    </div>
+
+    <!-- Mission & Vision -->
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-bullseye fa-3x text-primary mb-3"></i>
+                    <h3>Our Mission</h3>
+                    {% if about_content %}
+                    <p>{{ about_content.mission }}</p>
+                    {% else %}
+                    <p>To provide a nurturing environment that fosters academic excellence, character development, and lifelong learning for all students.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-eye fa-3x text-primary mb-3"></i>
+                    <h3>Our Vision</h3>
+                    {% if about_content %}
+                    <p>{{ about_content.vision }}</p>
+                    {% else %}
+                    <p>To be a leading educational institution that empowers students to become responsible global citizens and leaders of tomorrow.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Values -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <h2 class="text-center mb-4">Our Values</h2>
+            {% if about_content %}
+            <p class="text-center">{{ about_content.values }}</p>
+            {% else %}
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <i class="fas fa-graduation-cap fa-2x text-primary mb-2"></i>
+                    <h5>Excellence</h5>
+                    <p>Striving for the highest standards in all we do</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="fas fa-handshake fa-2x text-primary mb-2"></i>
+                    <h5>Integrity</h5>
+                    <p>Being honest and maintaining strong moral principles</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="fas fa-users fa-2x text-primary mb-2"></i>
+                    <h5>Community</h5>
+                    <p>Working together for the success of every student</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="fas fa-heart fa-2x text-primary mb-2"></i>
+                    <h5>Respect</h5>
+                    <p>Valuing every individual in our school community</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="row">
+        <div class="col-12 text-center">
+            <h3>Meet Our Team</h3>
+            <p>Get to know our dedicated staff and teachers</p>
+            <a href="{% url 'staff' %}" class="btn btn-primary btn-lg">View Our Staff</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
