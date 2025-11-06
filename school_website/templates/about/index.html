@@ -1,6 +1,15 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}About Us - {{ block.super }}{% endblock %}
+
+{% block extra_css %}
+<style>
+    .card-body text-center{
+            background-color: rgb(255, 251, 0);
+        }
+</style>
+{% endblock %}
 
 {% block content %}
 <div class="container py-5">
@@ -23,7 +32,7 @@
             {% endif %}
         </div>
         <div class="col-lg-6">
-            <img src="https://via.placeholder.com/500x300" alt="School History" class="img-fluid rounded">
+            <img src="{% static 'history.jpeg' %}" alt="School History" class="img-fluid rounded">
         </div>
     </div>
 
