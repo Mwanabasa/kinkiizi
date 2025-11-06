@@ -1,16 +1,17 @@
 # apps/home/views.py
 from django.shortcuts import render
 from django.views.generic import TemplateView
+from gallery.models import GalleryImage
 
 class HomeView(TemplateView):
     template_name = 'home/index.html'
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # Temporarily remove the imports that cause circular dependencies
-        context['latest_news'] = []  # Empty for now
-        context['gallery_images'] = []  # Empty for now
-        context['home_content'] = None  # Empty for now
+        # TODO: wire actual latest news and home content
+        context['latest_news'] = []
+        context['gallery_images'] = GalleryImage.objects.all()[:12]
+        context['home_content'] = []
         return context
 
 # Temporary simple view for testing
