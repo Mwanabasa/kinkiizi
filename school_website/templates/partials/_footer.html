@@ -4,12 +4,31 @@
         <div class="row">
             <div class="col-lg-4 mb-4">
                 <h5>Our School</h5>
-                <p>Providing quality education and nurturing future leaders since 1990. Committed to academic excellence and character development.</p>
+                {% if site_settings and site_settings.school_description %}
+                    <p>{{ site_settings.school_description }}</p>
+                {% else %}
+                    <p>Providing quality education and nurturing future leaders since 1990. Committed to academic excellence and character development.</p>
+                {% endif %}
                 <div class="social-links">
-                    <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
-                    <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
-                    <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
-                    <a href="#" class="text-white"><i class="fab fa-linkedin fa-lg"></i></a>
+                    {% if site_settings %}
+                        {% if site_settings.facebook_url %}
+                            <a href="{{ site_settings.facebook_url }}" class="text-white me-3" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook fa-lg"></i></a>
+                        {% endif %}
+                        {% if site_settings.twitter_url %}
+                            <a href="{{ site_settings.twitter_url }}" class="text-white me-3" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter fa-lg"></i></a>
+                        {% endif %}
+                        {% if site_settings.instagram_url %}
+                            <a href="{{ site_settings.instagram_url }}" class="text-white me-3" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram fa-lg"></i></a>
+                        {% endif %}
+                        {% if site_settings.linkedin_url %}
+                            <a href="{{ site_settings.linkedin_url }}" class="text-white" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin fa-lg"></i></a>
+                        {% endif %}
+                    {% else %}
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin fa-lg"></i></a>
+                    {% endif %}
                 </div>
             </div>
             
@@ -26,18 +45,30 @@
             <div class="col-lg-3 mb-4">
                 <h5>Contact Info</h5>
                 <ul class="list-unstyled">
-                    <li><i class="fas fa-map-marker-alt me-2"></i> 123 School Street, City</li>
-                    <li><i class="fas fa-phone me-2"></i> (123) 456-7890</li>
-                    <li><i class="fas fa-envelope me-2"></i> info@ourschool.edu</li>
+                    {% if contact_info %}
+                        <li><i class="fas fa-map-marker-alt me-2"></i> {{ contact_info.address|linebreaksbr }}</li>
+                        <li><i class="fas fa-phone me-2"></i> {{ contact_info.phone }}</li>
+                        <li><i class="fas fa-envelope me-2"></i> {{ contact_info.email }}</li>
+                    {% else %}
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 123 School Street, City</li>
+                        <li><i class="fas fa-phone me-2"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@ourschool.edu</li>
+                    {% endif %}
                 </ul>
             </div>
             
             <div class="col-lg-3 mb-4">
                 <h5>School Hours</h5>
                 <ul class="list-unstyled">
-                    <li>Monday - Friday: 8:00 AM - 3:00 PM</li>
-                    <li>Saturday: 9:00 AM - 12:00 PM</li>
-                    <li>Sunday: Closed</li>
+                    {% if site_settings %}
+                        <li>{{ site_settings.school_hours_weekdays }}</li>
+                        <li>{{ site_settings.school_hours_saturday }}</li>
+                        <li>{{ site_settings.school_hours_sunday }}</li>
+                    {% else %}
+                        <li>Monday - Friday: 8:00 AM - 3:00 PM</li>
+                        <li>Saturday: 9:00 AM - 12:00 PM</li>
+                        <li>Sunday: Closed</li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -46,11 +77,20 @@
         
         <div class="row">
             <div class="col-md-6">
-                <p>&copy; 2024 Our School. All rights reserved.</p>
+                <p>{% if site_settings %}{{ site_settings.copyright_text }}{% else %}&copy; 2024 Our School. All rights reserved.{% endif %}</p>
             </div>
             <div class="col-md-6 text-md-end">
-                <a href="#" class="text-white text-decoration-none me-3">Privacy Policy</a>
-                <a href="#" class="text-white text-decoration-none">Terms of Service</a>
+                {% if site_settings %}
+                    {% if site_settings.privacy_policy_url %}
+                        <a href="{{ site_settings.privacy_policy_url }}" class="text-white text-decoration-none me-3">Privacy Policy</a>
+                    {% endif %}
+                    {% if site_settings.terms_of_service_url %}
+                        <a href="{{ site_settings.terms_of_service_url }}" class="text-white text-decoration-none">Terms of Service</a>
+                    {% endif %}
+                {% else %}
+                    <a href="#" class="text-white text-decoration-none me-3">Privacy Policy</a>
+                    <a href="#" class="text-white text-decoration-none">Terms of Service</a>
+                {% endif %}
             </div>
         </div>
     </div>
