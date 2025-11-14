@@ -2,6 +2,14 @@
 
 {% block title %}{{ news.title }} - {{ block.super }}{% endblock %}
 
+{% block extra_css %}
+<style>
+    body{
+        background-color: rgb(243, 243, 139);
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="container py-5">
     <div class="row">
