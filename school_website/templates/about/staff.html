@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Our Staff - {{ block.super }}{% endblock %}
+
+{% block extra_css %}
+<style>
+    body{
+        background-color: cyan;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row mb-5">
+        <div class="col-12 text-center">
+            <h1>Meet Our Staff</h1>
+            <p class="lead">Dedicated professionals committed to excellence in education</p>
+        </div>
+    </div>
+
+    {% if staff_members %}
+    <!-- Group staff by position -->
+    {% regroup staff_members by get_position_display as staff_by_position %}
+    
+    {% for position_group in staff_by_position %}
+    <div class="row mb-5">
+        <div class="col-12">
+            <h2 class="mb-4 text-center">{{ position_group.grouper }}</h2>
+        </div>
+        
+        {% for staff in position_group.list %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                {% if staff.photo %}
+                <img src="{{ staff.photo.url }}" class="card-img-top" alt="{{ staff.name }}" style="height: 300px; object-fit: cover;">
+                {% else %}
+                <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height: 300px;">
+                    <i class="fas fa-user fa-5x text-white"></i>
+                </div>
+                {% endif %}
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ staff.name }}</h5>
+                    <p class="text-muted mb-2">{{ staff.get_position_display }}</p>
+                    {% if staff.qualification %}
+                    <p class="small mb-2"><strong>Qualification:</strong> {{ staff.qualification }}</p>
+                    {% endif %}
+                    {% if staff.experience %}
+                    <p class="small mb-2"><strong>Experience:</strong> {{ staff.experience }}</p>
+                    {% endif %}
+                    {% if staff.bio %}
+                    <p class="card-text">{{ staff.bio|truncatewords:20 }}</p>
+                    {% endif %}
+                    {% if staff.email %}
+                    <a href="mailto:{{ staff.email }}" class="btn btn-outline-primary btn-sm mt-2">
+                        <i class="fas fa-envelope me-1"></i>Contact
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+    
+    {% else %}
+    <div class="row">
+        <div class="col-12 text-center">
+            <div class="alert alert-info">
+                <h4>No Staff Information Available</h4>
+                <p>Staff information will be displayed here once it's added to the system.</p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
