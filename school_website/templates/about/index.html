@@ -8,21 +8,46 @@
     body{
             background-color: lightyellow;
         }
+    .col-md-6{
+        background-color: #8B4513;
+    }
+    .h-100{
+        background-color: yellowgreen;
+    }
+    .mb-5{
+        background-color: rgb(235, 181, 143);
+    }
+    .lead{
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .about-our-school{
+        color: blue;
+    }
+    h3{
+        color: red;
+    }
+    h2{
+        color: green;
+    }
+    p{
+        font-size: large;
+    }
 </style>
 {% endblock %}
 
 {% block content %}
 <div class="container py-5">
     <!-- Page Header -->
-    <div class="row mb-5">
+    <div class="row mb-9">
         <div class="col-12 text-center">
-            <h1>About Our School</h1>
+            <h1 class="about-our-school">About Our School</h1>
             <p class="lead">Building futures through quality education</p>
         </div>
     </div>
 
     <!-- History Section -->
-    <div class="row mb-5">
+    <div class="row mb-7">
         <div class="col-lg-6">
             <h2>Our History</h2>
             {% if about_content %}
@@ -102,7 +127,7 @@
     <!-- Call to Action -->
     <div class="row">
         <div class="col-12 text-center">
-            <h3>Meet Our Team</h3>
+            <h3 style="color: rgb(9, 9, 56);">Meet Our Team</h3>
             <p>Get to know our dedicated staff and teachers</p>
             <a href="{% url 'staff' %}" class="btn btn-primary btn-lg">View Our Staff</a>
         </div>

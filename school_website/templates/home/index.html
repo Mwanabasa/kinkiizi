@@ -4,7 +4,22 @@
 
 {% block title %}Home - {{ block.super }}{% endblock %}
 
+{% block extra_css %}
+<style>
+    body{
+        background-image: url('{% static "history.jpeg" %}');
+    }
+    .contain{
+        background-color: antiquewhite;
+    }
+    .py-5{
+        background-color: bisque;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
+
 <!-- Hero Section -->
 <section class="hero-section bg-primary text-white py-5">
     <div class="container">
@@ -82,7 +97,7 @@
 
 <!-- Welcome Message -->
 <section class="py-5">
-    <div class="container">
+    <div class="contain">
         <div class="row">
             <div class="col-lg-12">
                 {% if home_content %}

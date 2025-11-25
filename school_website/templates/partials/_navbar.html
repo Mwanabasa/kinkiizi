@@ -1,7 +1,9 @@
+{% load static %}
+
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #8B4513;">
     <div class="container">
         <a class="navbar-brand" href="{% url 'home' %}">
-            <i class="fas fa-school me-2"></i>
+            <img src="{% static 'badge.jpeg' %}" alt="School Logo" style="height: 30px; width: auto;" class="me-2">
             Our School
         </a>
         
