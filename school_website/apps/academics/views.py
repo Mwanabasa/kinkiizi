@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.views.generic import TemplateView, ListView
-from .models import Program, AcademicCalendar
+from .models import Program, AcademicCalendar, Subject
 
 class AcademicsView(TemplateView):
     template_name = 'academics/index.html'
@@ -24,6 +24,11 @@ class CalendarView(ListView):
     model = AcademicCalendar
     template_name = 'academics/calendar.html'
     context_object_name = 'events'
+
+class SubjectListView(ListView):
+    model = Subject
+    template_name = 'academics/subjects.html'
+    context_object_name = 'subjects'
     
     def get_queryset(self):
-        return AcademicCalendar.objects.all()
+        return Subject.objects.filter(is_active=True)

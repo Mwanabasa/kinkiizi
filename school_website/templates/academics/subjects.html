@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Subjects - {{ block.super }}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h1 class="text-center mb-5">Subjects</h1>
+
+  {% if subjects %}
+        <div class="table-responsive">
+            <table class="table table-striped align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Subject</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for subject in subjects %}
+                        <tr>
+                            <td>{{ subject.name }}</td>
+                            <td>
+                                {% if subject.description %}
+                                    {{ subject.description }}
+                                {% else %}
+                                    <span class="text-muted">No description provided</span>
+                                {% endif %}
+                            </td>
+                            <td>{{ subject.get_level_display }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p class="text-center">No subjects found.</p>
+    {% endif %}
+</div>
+{% endblock %}

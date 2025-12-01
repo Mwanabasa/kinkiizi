@@ -8,6 +8,20 @@
     body{
         background-color: cyan;
     }
+    .staff-photo-wrapper {
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+    .staff-photo-wrapper:hover {
+        transform: scale(1.05);
+    }
+    .staff-photo-wrapper img {
+        transition: transform 0.3s ease;
+    }
+    .staff-photo-wrapper:hover img {
+        transform: scale(1.1);
+    }
 </style>
 {% endblock %}
 
@@ -34,7 +48,9 @@
         <div class="col-md-6 col-lg-4 mb-4">
             <div class="card h-100 shadow-sm">
                 {% if staff.photo %}
-                <img src="{{ staff.photo.url }}" class="card-img-top" alt="{{ staff.name }}" style="height: 300px; object-fit: cover;">
+                <div class="staff-photo-wrapper">
+                    <img src="{{ staff.photo.url }}" class="card-img-top" alt="{{ staff.name }}" style="height: 300px; object-fit: cover;">
+                </div>
                 {% else %}
                 <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height: 300px;">
                     <i class="fas fa-user fa-5x text-white"></i>

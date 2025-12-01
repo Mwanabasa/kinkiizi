@@ -19,9 +19,12 @@ class AboutPage(models.Model):
 
 class Staff(models.Model):
     POSITION_CHOICES = [
-        ('principal', 'Principal'),
+        ('head', 'Head Teacher'),
+        ('deputy1', 'Deputy Head Teacher Administaration'),
+        ('deputy', 'Deputy Head Teacher Academics'),
+        ('dos', 'Director of Studies'),
+        ('sec', 'Secretary'),
         ('teacher', 'Teacher'),
-        ('administrator', 'Administrator'),
         ('support', 'Support Staff'),
     ]
     

@@ -41,3 +41,21 @@ class AcademicCalendar(models.Model):
     
     def __str__(self):
         return self.title
+
+class Subject(models.Model):
+    LEVEL_CHOICES = [
+        ('ordinary', 'Ordinary Level'),
+        ('advanced', 'Advanced Level'),
+        ('ordinaryadvanced', 'Ordinary and Advanced Levels')
+    ]
+    
+    name = models.CharField(max_length=200)
+    description = models.TextField(blank=True)
+    level = models.CharField(max_length=20, choices=LEVEL_CHOICES, default='ordinary')
+    is_active = models.BooleanField(default=True)
+    
+    class Meta:
+        ordering = ['level', 'name']
+    
+    def __str__(self):
+        return self.name

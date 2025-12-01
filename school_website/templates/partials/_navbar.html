@@ -2,9 +2,9 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #8B4513;">
     <div class="container">
-        <a class="navbar-brand" href="{% url 'home' %}">
+        <a class="navbar-brand" >
             <img src="{% static 'badge.jpeg' %}" alt="School Logo" style="height: 30px; width: auto;" class="me-2">
-            Our School
+            KHS-N
         </a>
         
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -26,6 +26,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{% url 'academics' %}">Overview</a></li>
                         <li><a class="dropdown-item" href="{% url 'programs' %}">Programs</a></li>
+                        <li><a class="dropdown-item" href="{% url 'subjects' %}">Subjects</a></li>
                         <li><a class="dropdown-item" href="{% url 'calendar' %}">Calendar</a></li>
                     </ul>
                 </li>

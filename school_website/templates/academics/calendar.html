@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Academic Calendar - {{ block.super }}{% endblock %}
+
+{% block extra_css %}
+<style>
+    body{
+        background-color: cyan;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="text-center mb-5">Academic Calendar</h1>
+
+    {% if events %}
+        <div class="table-responsive">
+            <table class="table table-striped align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for event in events %}
+                        <tr>
+                            <td>
+                                {{ event.start_date }}{% if event.end_date %} – {{ event.end_date }}{% endif %}
+                            </td>
+                            <td>{{ event.title }}</td>
+                            <td>
+                                {% if event.description %}
+                                    {{ event.description }}
+                                {% else %}
+                                    <span class="text-muted">No description provided</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="alert alert-info text-center">
+            No calendar events are available at the moment. Please check back later.
+        </div>
+    {% endif %}
+
+    <div class="text-center mt-4">
+        <a href="{% url 'academics' %}" class="btn btn-outline-secondary">Back to Academics</a>
+    </div>
+</div>
+{% endblock %}
+
+
