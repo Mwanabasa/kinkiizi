@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}{{ program.name }} - {{ block.super }}{% endblock %}
+
+{% block extra_css %}   
+<style>
+    h1{
+        color: red;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h1 class="text-center mb-4">{{ program.name }}</h1>
+
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-8 text-center">
+            <span class="badge bg-primary mb-3">
+                {{ program.get_program_type_display }}
+            </span>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            {% if program.description %}
+                <p class="lead text-center">{{ program.description }}</p>
+            {% else %}
+                <p class="lead text-center text-muted">
+                    Program description will be available soon.
+                </p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="text-center mt-5">
+        <a href="{% url 'programs' %}" class="btn btn-outline-secondary me-2">Back to Programs</a>
+        <a href="{% url 'academics' %}" class="btn btn-primary">Back to Academics</a>
+    </div>
+</div>
+{% endblock %}
+
+

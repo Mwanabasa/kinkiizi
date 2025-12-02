@@ -15,6 +15,39 @@
     .py-5{
         background-color: bisque;
     }
+    .head-teacher-photo {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+    }
+    .head-teacher-photo:hover {
+        transform: scale(1.05);
+    }
+    .head-teacher-photo img {
+        transition: transform 0.3s ease;
+    }
+    .head-teacher-photo:hover img {
+        transform: scale(1.1);
+    }
+    h2{
+        color: rgb(226, 70, 43);
+    }
+    .news-photo {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+    }
+    .news-photo:hover {
+        transform: scale(1.05);
+    }
+    .news-photo img {
+        transition: transform 0.3s ease;
+    }
+    .news-photo:hover img {
+        transform: scale(1.1);
+    }
 </style>
 {% endblock %}
 
@@ -123,7 +156,19 @@
                 <h2 class="text-center mb-4">Head Teacher's Message</h2>
                 <div class="card shadow-sm border-0">
                     <div class="card-body p-4">
-                        <p class="lead mb-0">{{ home_content.principal_message|linebreaks }}</p>
+                        <div class="row justify-content-center g-4">
+                            {% if home_content.head_teacher_photo %}
+                            <div class="col-md-6 col-lg-4 text-center">
+                                <div class="head-teacher-photo d-inline-block">
+                                    <img src="{{ home_content.head_teacher_photo.url }}" alt="Head Teacher" class="img-fluid rounded shadow-sm" style="max-height: 260px; object-fit: cover;">
+                                </div>
+                                <p class="fw-semibold mt-3 mb-0">Head Teacher</p>
+                            </div>
+                            {% endif %}
+                            <div class="col-12">
+                                <p class="lead mb-0 text-center">{{ home_content.principal_message|linebreaks }}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -141,7 +186,9 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
                     {% if news.image %}
-                    <img src="{{ news.image.url }}" class="card-img-top" alt="{{ news.title }}" style="height: 200px; object-fit: cover;">
+                    <div class="news-photo">
+                        <img src="{{ news.image.url }}" class="card-img-top" alt="{{ news.title }}" style="height: 200px; object-fit: cover;">
+                    </div>
                     {% endif %}
                     <div class="card-body">
                         <h5 class="card-title">{{ news.title }}</h5>

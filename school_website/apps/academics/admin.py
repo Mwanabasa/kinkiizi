@@ -6,6 +6,8 @@ class ProgramAdmin(admin.ModelAdmin):
     list_display = ['name', 'program_type', 'is_active']
     list_filter = ['program_type', 'is_active']
     search_fields = ['name', 'description']
+    # Only show these fields in the admin form
+    fields = ['name', 'program_type', 'description', 'is_active']
 
 @admin.register(AcademicCalendar)
 class AcademicCalendarAdmin(admin.ModelAdmin):

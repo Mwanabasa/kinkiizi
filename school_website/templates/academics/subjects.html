@@ -2,9 +2,17 @@
 
 {% block title %}Subjects - {{ block.super }}{% endblock %}
 
+{% block extra_css %}   
+<style>
+    h1{
+        color: red;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="container py-5">
-  <h1 class="text-center mb-5">Subjects</h1>
+  <h1 class="text-center mb-5">Subjects taught at Kinkiizi High School</h1>
 
   {% if subjects %}
         <div class="table-responsive">

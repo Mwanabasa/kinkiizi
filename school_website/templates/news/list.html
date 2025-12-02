@@ -7,6 +7,24 @@
     body{
         background-color: rgb(243, 243, 139);
     }
+    h1{
+        color: rgb(43, 46, 226);
+    }
+    .news-photo {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px 8px 0 0;
+        transition: transform 0.3s ease;
+    }
+    .news-photo:hover {
+        transform: scale(1.05);
+    }
+    .news-photo img {
+        transition: transform 0.3s ease;
+    }
+    .news-photo:hover img {
+        transform: scale(1.1);
+    }
 </style>
 {% endblock %}
 
@@ -19,7 +37,9 @@
         <div class="col-lg-6 mb-4">
             <div class="card h-100">
                 {% if news.image %}
-                <img src="{{ news.image.url }}" class="card-img-top" alt="{{ news.title }}" style="height: 250px; object-fit: cover;">
+                <div class="news-photo">
+                    <img src="{{ news.image.url }}" class="card-img-top" alt="{{ news.title }}" style="height: 250px; object-fit: cover;">
+                </div>
                 {% endif %}
                 <div class="card-body">
                     <h5 class="card-title">{{ news.title }}</h5>

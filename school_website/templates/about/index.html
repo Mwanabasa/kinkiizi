@@ -48,16 +48,13 @@
 
     <!-- History Section -->
     <div class="row mb-7">
-        <div class="col-lg-6">
+        <div class="col-lg-10 mx-auto">
             <h2>Our History</h2>
             {% if about_content %}
             <p>{{ about_content.history }}</p>
             {% else %}
             <p>Founded in 1990, our school has been at the forefront of providing quality education to generations of students. We have grown from a small community school to a leading educational institution known for academic excellence and character development.</p>
             {% endif %}
-        </div>
-        <div class="col-lg-6">
-            <img src="{% static 'history.jpeg' %}" alt="School History" class="img-fluid rounded">
         </div>
     </div>
 

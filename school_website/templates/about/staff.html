@@ -22,6 +22,9 @@
     .staff-photo-wrapper:hover img {
         transform: scale(1.1);
     }
+    h1{
+        color: maroon;
+    }
 </style>
 {% endblock %}
 
@@ -67,11 +70,6 @@
                     {% endif %}
                     {% if staff.bio %}
                     <p class="card-text">{{ staff.bio|truncatewords:20 }}</p>
-                    {% endif %}
-                    {% if staff.email %}
-                    <a href="mailto:{{ staff.email }}" class="btn btn-outline-primary btn-sm mt-2">
-                        <i class="fas fa-envelope me-1"></i>Contact
-                    </a>
                     {% endif %}
                 </div>
             </div>

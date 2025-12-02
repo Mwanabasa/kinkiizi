@@ -2,6 +2,17 @@
 
 {% block title %}Programs - {{ block.super }}{% endblock %}
 
+{% block extra_css %}
+<style>
+    body{
+        background-color: rgb(233, 233, 225);
+    }
+    h1{
+        color: red;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="container py-5">
     <h1 class="text-center mb-5">Our Academic Programs</h1>
@@ -13,8 +24,8 @@
                     <div class="card h-100 shadow-sm">
                         <div class="card-body d-flex flex-column">
                             <h3 class="h5">{{ program.name }}</h3>
-                            {% if program.level %}
-                                <span class="badge bg-primary mb-2">{{ program.level }}</span>
+                            {% if program.program_type %}
+                                <span class="badge bg-primary mb-2">{{ program.get_program_type_display }}</span>
                             {% endif %}
 
                             {% if program.description %}

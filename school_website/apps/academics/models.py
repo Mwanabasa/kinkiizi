@@ -4,9 +4,8 @@ from django.db import models
 
 class Program(models.Model):
     PROGRAM_TYPES = [
-        ('primary', 'Primary School'),
-        ('secondary', 'Secondary School'),
-        ('high', 'High School'),
+        ('ordinary', 'Ordinary Level'),
+        ('advanced', 'Advanced Level'),
     ]
     
     name = models.CharField(max_length=200)
