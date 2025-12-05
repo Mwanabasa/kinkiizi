@@ -41,7 +41,8 @@
                 </li>
             </ul>
             
-            <div class="navbar-nav">
+            <!-- This is the login button in the nav bar-->
+            <!--<div class="navbar-nav">
                 {% if user.is_authenticated %}
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
@@ -50,7 +51,12 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/admin/">Dashboard</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{% url 'admin:logout' %}">Logout</a></li>
+                        <li>
+                            <form method="post" action="{% url 'admin:logout' %}" class="m-0">
+                                {% csrf_token %}
+                                <button type="submit" class="dropdown-item">Logout</button>
+                            </form>
+                        </li>
                     </ul>
                 </div>
                 {% else %}
@@ -58,7 +64,7 @@
                     <i class="fas fa-sign-in-alt me-1"></i> Login
                 </a>
                 {% endif %}
-            </div>
+            </div>-->
         </div>
     </div>
 </nav>
