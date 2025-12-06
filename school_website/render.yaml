@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: school-website
+    name: school_website
     env: python
     buildCommand: "./build.sh"
     startCommand: "gunicorn school_website.wsgi:application"
