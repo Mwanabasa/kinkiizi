@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: school-website
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn school_website.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: school_website.settings
+      - key: PYTHON_VERSION
+        value: 3.13
