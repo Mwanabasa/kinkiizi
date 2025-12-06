@@ -7,7 +7,7 @@ SECRET_KEY = 'your-secret-key-here'
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['kinkiizi5.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['kinkiizi-6.onrender.com', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
